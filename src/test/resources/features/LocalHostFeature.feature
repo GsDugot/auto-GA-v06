@@ -5,7 +5,6 @@ Feature: Verificar localhost
 
   Scenario: Verificar si se puede acceder al menu de creación de cuenta
     Given localhost page loaded
-    And Navbar button is clicked
-    And Add account button is clicked
-    Then Name input is visible
-    But Create Account button should not be visible
+    And Navbar button is visible
+    Then Navbar button is clicked
+    And Add account button should be visible

@@ -13,6 +13,7 @@ import java.awt.*;
 
 public class LocalhostStepdefs {
     private Menu localhostMenu;
+
     @Given("^localhost page loaded$")
     public void localhostPageLoaded() {
         localhostMenu = LoadPage.loadHostMenu();
@@ -21,34 +22,18 @@ public class LocalhostStepdefs {
 
     @Then("^Navbar button is visible$")
     public void navbarButtonIsVisible() {
-        boolean isVisible = localhostMenu.isNavDrawerBtnVisible();
-        Assert.assertEquals(isVisible, true);
-        System.out.println("Navbar Button Visible");
+        boolean navVisible = localhostMenu.isNavDrawerBtnVisible();
+        Assert.assertTrue(navVisible);
     }
 
-    @And("^Navbar button is clicked$")
+    @Then("^Navbar button is clicked$")
     public void navbarButtonIsClicked() {
         localhostMenu.clickNavDrawerBtn();
-        //localhostMenu.isAddAccountBtnVisible();
-
-        //Thread.sleep(1000);
     }
 
-    @And("^Add account button is clicked$")
-    public void addAccountButtonIsClicked() {
-        localhostMenu.clickAddAccountBtn();
-        //Thread.sleep(1000);
-    }
-
-    @Then("^Name input is visible$")
-    public void nameInputIsVisible() {
-        boolean isVisible = localhostMenu.isAccountNameInputVisible();
-        Assert.assertEquals(isVisible, true);
-    }
-
-    @But("^Create Account button should not be visible$")
-    public void createAccountButtonShouldNotBeVisible() {
-        boolean isVisible = localhostMenu.isAccountCreateBtnVisible();
-        Assert.assertEquals(isVisible, false);
+    @And("^Add account button should be visible$")
+    public void addAccountButtonShouldBeVisible() {
+        boolean accVisible = localhostMenu.isNavDrawerBtnVisible();
+        Assert.assertTrue(accVisible);
     }
 }
